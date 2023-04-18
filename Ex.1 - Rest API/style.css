@@ -1,0 +1,104 @@
+/* Set body background color */
+body {
+  background-color: #f6f6f6;
+}
+
+/* Center the page content */
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Style the page title */
+h1 {
+  margin-top: 0;
+  font-size: 2rem;
+  text-align: center;
+  color: #333;
+}
+
+/* Style the form */
+#city-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+#city-form label {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+#city-form input[type="text"] {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  font-size: 1.2rem;
+}
+
+#city-form button[type="submit"] {
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 12px 20px;
+  margin-top: 10px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#city-form button[type="submit"]:hover {
+  background-color: #3e8e41;
+}
+
+/* Style the weather data */
+#weather-data {
+  text-align: center;
+}
+
+#weather-data h2 {
+  font-size: 2rem;
+  margin-top: 0;
+  color: #333;
+}
+
+#weather-data p {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+#weather-data .city-symbol:before {
+  content: "(";
+}
+
+#weather-data .city-symbol:after {
+  content: ")";
+}
+
+#weather-data img {
+  margin-top: 20px;
+  max-width: 100px;
+  max-height: 100px;
+}
+
+footer {
+    background-color: #f6f6f6;
+    padding: 10px;
+    position: absolute;
+    bottom: 0;
+    width: 100%
+}
+
+footer p {
+    margin: 0;
+    text-align: center;
+}
