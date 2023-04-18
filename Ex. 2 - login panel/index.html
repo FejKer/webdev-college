@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Walidacja formularza</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Formularz rejestacyjny</h1>
+    </header>
+    <main>
+        <form action="">
+            <label for="username">Imię</label>
+            <input type="text" id="username" name="username" placeholder="Podaj imię">
+            <p class="error"></p>
+            
+            <label for="password">Hasło</label>
+            <input type="password" id="password" name="password" placeholder="Podaj hasło">
+            <p class="error"></p>
+
+            <label for="confirm-password">Powtórz hasło</label>
+            <input type="password" id="confirm-password" name="confirm-password" placeholder="Powtórz hasło">
+            <p class="error"></p>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Podaj adres email">
+            <p class="error"></p>
+
+            <input type="reset" value="Resetuj" id="reset">
+            <input type="submit" value="Wyślij" id="send">
+        </form>
+    </main>
+    <footer>
+        Projekt Uniwersitetu WSB
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
