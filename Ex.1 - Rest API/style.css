@@ -1,24 +1,49 @@
-/* Set body background color */
-body {
-  background-color: #f6f6f6;
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-/* Center the page content */
+/* Set width for body, html, and footer */
+body,
+html,
+footer {
+  width: 100%;
+}
+
+/* Set body styles */
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f6f6f6;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex-grow: 1;
+}
+h1 {
+  margin-top: 0;
+  font-size: 2.5rem;
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
 .container {
-  max-width: 600px;
-  margin: 0 auto;
+  max-width: 400px; /* Updated width */
+  margin: 50px auto; /* Add vertical margin */
   padding: 20px;
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Style the page title */
-h1 {
-  margin-top: 0;
-  font-size: 2rem;
-  text-align: center;
-  color: #333;
+  overflow-x: hidden; /* Hide horizontal overflow */
 }
 
 /* Style the form */
@@ -27,6 +52,7 @@ h1 {
   flex-direction: column;
   align-items: center;
   margin-bottom: 20px;
+  width: 100%; /* Add width */
 }
 
 #city-form label {
@@ -36,11 +62,14 @@ h1 {
 }
 
 #city-form input[type="text"] {
+  width: 100%;
+  max-width: 250px; /* Add max-width */
   padding: 10px;
   border-radius: 5px;
-  border: none;
+  border: 1px solid #ccc;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   font-size: 1.2rem;
+  margin-bottom: 10px; /* Add margin-bottom */
 }
 
 #city-form button[type="submit"] {
@@ -53,6 +82,8 @@ h1 {
   font-size: 1.2rem;
   cursor: pointer;
   transition: background-color 0.3s;
+  width: 100%;
+  max-width: 250px; /* Add max-width */
 }
 
 #city-form button[type="submit"]:hover {
@@ -62,6 +93,7 @@ h1 {
 /* Style the weather data */
 #weather-data {
   text-align: center;
+  margin-top: 20px;
 }
 
 #weather-data h2 {
@@ -86,19 +118,50 @@ h1 {
 
 #weather-data img {
   margin-top: 20px;
-  max-width: 100px;
-  max-height: 100px;
+  width: 150px;
+  height: 150px;
 }
 
 footer {
-    background-color: #f6f6f6;
-    padding: 10px;
-    position: absolute;
-    bottom: 0;
-    width: 100%
+  background-color: #f6f6f6;
+  padding: 10px;
+  width: 100%;
+  border-top: 2px solid #ccc; /* Add border */
 }
 
+
 footer p {
-    margin: 0;
-    text-align: center;
+  margin: 0;
+  text-align: center;
+  font-size: 1rem; /* Adjust font size */
+  color: #333; /* Adjust color */
+}
+
+/* Style the input area container */
+.input-area {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+/* Style the weather info container */
+.weather-info {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  display: none; /* Set initial display to none */
+}
+
+/* Add gradient background */
+body:before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+  z-index: -1;
+  opacity: 0.7;
 }
