@@ -1,0 +1,31 @@
+{
+    "theme_color" : "#5c4f42",
+    "background_color" : "#00edfe",
+    "display" : "fullscreen",
+    "scope" : "/",
+    "start_url" : "/webdev-college/Ex.%203%20-%20PWA/",
+    "name" : "Wolne Samochody",
+    "short_name" : "Samochody",
+    "icons": [
+        {
+            "src": "/icon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/icon-256x256.png",
+            "sizes": "256x256",
+            "type": "image/png"
+        },
+        {
+            "src": "/icon-384x384.png",
+            "sizes": "384x384",
+            "type": "image/png"
+        },
+        {
+            "src": "/icon-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}
