@@ -5,10 +5,13 @@ self.addEventListener('install', function(event) {
           '/',
           '/index.html',
           '/styles.css',
-          '/icon-192x192.png',
-          '/icon-256x256.png',
-          '/icon-384x384.png',
-          '/icon-512x512.png'
+          '/webdev-college/Ex.%203%20-%20PWA/styles.css',
+          '/webdev-college/Ex.%203%20-%20PWA/index.html',
+          '/webdev-college/Ex.%203%20-%20PWA/',
+          '/webdev-college/Ex.%203%20-%20PWA/icon-192x192.png',
+          '/webdev-college/Ex.%203%20-%20PWA/icon-256x256.png',
+          '/webdev-college/Ex.%203%20-%20PWA/icon-384x384.png',
+          '/webdev-college/Ex.%203%20-%20PWA/icon-512x512.png'
         ]);
       })
     );
