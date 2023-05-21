@@ -26,7 +26,7 @@ window.onload = function() {
         e.preventDefault(); // Stop the form from submitting normally
 
         var id = document.getElementById("id").value;
-        var url = `http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=APIKEY&steamids=${id}`;
+        var url = `http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/?key=${encodeURIComponent(secretValue)}&steamids=${id}`;
         var proxyUrl = 'http://omigo.me:8888/';
 
         var statusElement = document.querySelector(".status");
