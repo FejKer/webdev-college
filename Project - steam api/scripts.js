@@ -5,6 +5,7 @@ window.onload = function() {
     var loginButton = document.getElementById("loginButton");
     var nicknameElement = document.querySelector(".user-nickname");
     var profilePicElement = document.querySelector(".profile-pic");
+    const secretValue = process.env.STEAM_API_KEY;
 
     btn.onclick = function() {
         modal.style.display = "block";
