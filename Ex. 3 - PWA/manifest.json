@@ -2,7 +2,7 @@
     "theme_color" : "#5c4f42",
     "background_color" : "#00edfe",
     "display" : "fullscreen",
-    "scope" : "/webdev-college/Ex.%203%20-%20PWA/",
+    "scope" : "/",
     "start_url" : "/webdev-college/Ex.%203%20-%20PWA/",
     "name" : "Wolne Samochody",
     "short_name" : "Samochody",
