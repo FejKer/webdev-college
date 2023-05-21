@@ -16,3 +16,19 @@ body {
     font-weight: 500;
     font-size: 18px;
 }
+
+.card-img {
+    width: 100%;  /* Adjust as needed */
+    height: 150px; /* Adjust as needed */
+    object-fit: cover;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+}
+
+.intro-text {
+    text-align: center;
+    font-size: 1.2rem; /* Adjust as needed */
+}
