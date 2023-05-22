@@ -5,7 +5,7 @@ window.onload = function() {
     var loginButton = document.getElementById("loginButton");
     var nicknameElement = document.querySelector(".user-nickname");
     var profilePicElement = document.querySelector(".profile-pic");
-    const secretValue = "B94010C95F9D0B6D23F9A7DC3AC23BD1";
+    const secretValue = "";
 
     btn.onclick = function() {
         modal.style.display = "block";
