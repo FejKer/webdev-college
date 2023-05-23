@@ -6,26 +6,27 @@
     text-align: center;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-content {
+    display: flex;
+    justify-content: center;
 }
 
 .card-title {
-    /* Max lines to display before cut-off */
     -webkit-line-clamp: 3; 
 
-    /* Required for line-clamp to work */
     overflow: hidden;
     display: -webkit-box; 
     -webkit-box-orient: vertical;
 
-    /* Optional: Defines vertical space between lines */
     line-height: 1.2em; 
 
-    /* Optional: Defines max-height so line-clamp works */
     max-height: 2.4em;  
 }
-
-
+  
 #image-gallery {
     justify-content: center;
 }

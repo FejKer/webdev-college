@@ -4,14 +4,11 @@ $(document).ready(function() {
   function fetchImages() {
     var filters = {};
 
-    // Get the values of each filter field
     filters.q = $('#keyword-input').val();
     filters.media_type = $('#media-type-select').val();
     filters.year_start = $('#year-start-input').val();
     filters.year_end = $('#year-end-input').val();
     filters.location = $('#location-input').val();
-
-    var sort = $('#sort-select').val();
 
     var apiUrl = 'https://images-api.nasa.gov/search?';
     Object.keys(filters).forEach(function(key) {
@@ -19,10 +16,6 @@ $(document).ready(function() {
         apiUrl += key + '=' + encodeURIComponent(filters[key]) + '&';
       }
     });
-
-    if (sort) {
-      apiUrl += 'sort=' + encodeURIComponent(sort) + '&';
-    }
 
     currentApiUrl = apiUrl;
 
@@ -34,31 +27,49 @@ $(document).ready(function() {
         var galleryDiv = $('#image-gallery');
         galleryDiv.empty();
 
-        // Display each image in the gallery
         items.forEach(function(item) {
-          var mediaType = item.data[0].media_type;
-          var mediaUrl = item.links[0].href;
-          var mediaTitle = item.data[0].title;
+          var mediaType;
+          var mediaUrl;
+          var mediaTitle;
+          try {
+            mediaType = item.data[0].media_type;
+            mediaUrl = item.links[0].href;
+            mediaTitle = item.data[0].title;
+          } catch(e) {
 
-          // Create a card for each media item
+          }
+
           var card = $('<div>').addClass('card');
 
           if (mediaType === 'image') {
             var img = $('<img>').addClass('card-img-top').attr('src', mediaUrl).attr('alt', mediaTitle);
             img.click(function() {
-              $('#image-details').text(JSON.stringify(item.data[0], null, 2));
+              $('#image-details').empty().append(formatJSON(item.data[0]));
               $('#image-modal').modal('show');
-            });
+            });            
             card.append(img);
+            card.append($('<div>').addClass('card-body').append($('<h5>').addClass('card-title').text(mediaTitle)));
           } else if (mediaType === 'video') {
-            var videoLink = $('<a>').attr('href', mediaUrl).attr('target', '_blank').text('Watch Video').addClass('btn btn-primary');
-            card.append($('<div>').addClass('card-img-top d-flex align-items-center justify-content-center').css('height', '200px').append(videoLink));
+            var coll = item.href;
+            var jsonData;
+            fetchData(coll).then(value => {
+              const regex = /\.(mp4|mov|mkv)$/i;
+              var directVideoLink = value.find(url => regex.test(url));
+              var video = $('<video>').addClass('card-img-top').attr('src', directVideoLink).attr('controls', true);
+              var cardBody = $('<div>').addClass('card-body').append($('<h5>').addClass('card-title').text(mediaTitle));
+              card.append(video);
+              card.append(cardBody);
+            });
           } else if (mediaType === 'audio') {
-            card.append($('<audio controls>').addClass('card-img-top').append($('<source>').attr('src', mediaUrl)));
+            var coll = item.href;
+            var jsonData;
+            fetchData(coll).then(value => {
+              const regex = /\.(mp3)$/i;
+              var directAudioLink = value.find(url => regex.test(url));
+              card.append($('<div>').addClass('card-body').css('margin-top', '20%').append($('<h5>').addClass('card-title').text("Audio")));
+              card.append($('<audio controls>').addClass('card-img-top').css('margin-bottom', '50%').append($('<source>').attr('src', directAudioLink)));
+            });
           }
-
-          card.append($('<div>').addClass('card-body').append($('<h5>').addClass('card-title').text(mediaTitle)));
-
           galleryDiv.append(card);
         });
       },
@@ -68,19 +79,30 @@ $(document).ready(function() {
     });
   }
 
+  function fetchData(coll) {
+    return fetch(coll)
+      .then(function(response) {
+        return response.json();
+      })
+      .catch(function(error) {
+        console.error("Error fetching file:", error);
+        return null;
+      });
+  }
+
+   function formatJSON(data) {
+    var formatted = $('<ul>');
+    Object.keys(data).forEach(function(key) {
+      var value = data[key];
+      if (Array.isArray(value)) {
+        value = value.join(', ');
+      }
+      formatted.append($('<li>').text(key + ': ' + value));
+    });
+    return formatted;
+  }
+
   $('#search-button').click(function() {
-    fetchImages();
-  });
-
-  $('#previous-button').click(function() {
-    var previousPageUrl = currentApiUrl + 'page=' + (parseInt(currentApiUrl.split('page=')[1]) - 1);
-    currentApiUrl = previousPageUrl;
-    fetchImages();
-  });
-
-  $('#next-button').click(function() {
-    var nextPageUrl = currentApiUrl + 'page=' + (parseInt(currentApiUrl.split('page=')[1]) + 1);
-    currentApiUrl = nextPageUrl;
     fetchImages();
   });
 });
