@@ -45,6 +45,7 @@ $(document).ready(function() {
             var img = $('<img>').addClass('card-img-top').attr('src', mediaUrl).attr('alt', mediaTitle);
             img.click(function() {
               $('#image-details').empty().append(formatJSON(item.data[0]));
+              $('#image-modal-img').attr('src', mediaUrl);
               $('#image-modal').modal('show');
             });            
             card.append(img);
